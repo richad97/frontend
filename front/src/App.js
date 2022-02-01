@@ -28,7 +28,7 @@ function App() {
       />
       {recipes.map((recipes, idx)=>{
         return (
-           //..\/ Will connect to API when possible with backend
+           //..\/ Will connect to API when possible with backendasdasd
           <div key={idx}>
             {recipes.recipeTitle}, {recipes.author}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.public}
             </div>
