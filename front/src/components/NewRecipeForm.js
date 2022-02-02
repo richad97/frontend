@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 const NewRecipeForm = (props) =>{
 
@@ -42,7 +41,7 @@ const NewRecipeForm = (props) =>{
             </label>
             <label><br/>instructions: 
                 <input
-                placeholder="enter ingredients here..."
+                placeholder="instructions"
                 value={props.values.instructions}
                 name="instructions"
                 onChange={handleChange}
@@ -50,7 +49,7 @@ const NewRecipeForm = (props) =>{
             </label>
             <label><br/>category: 
                 <input
-                placeholder="enter ingredients here..."
+                placeholder="category"
                 value={props.values.category}
                 name="category"
                 onChange={handleChange}
@@ -58,19 +57,30 @@ const NewRecipeForm = (props) =>{
             </label>
             <label><br/>Upload an Image: 
                 <input
-                placeholder="enter ingredients here..."
+                type="file"
                 value={props.values.recipeImg}
                 name="recipeImg"
                 onChange={handleChange}
                 /><br/>
             </label>
-            <label><br/>Privacy: 
+            
+            <label>Public
                 <input
-                placeholder="Is this recipe public or private?"
-                value={props.values.public}
-                name="public"
+                type="radio"
+                name="privacy"
+                value="public"
                 onChange={handleChange}
-                /><br/>
+                checked={props.values.privacy === "public"}
+                />
+            </label>
+            <label>Private
+                <input
+                type="radio"
+                name="privacy"
+                value="private"
+                onChange={handleChange}
+                checked={props.values.privacy === "private"}
+                />
             </label>
             <input type="submit" value="Submit Recipe"/>
         </form>

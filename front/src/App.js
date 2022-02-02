@@ -6,11 +6,11 @@ import NewRecipeForm from './components/NewRecipeForm';
 function App() {
  
   const [recipes, setRecipes] = useState([]);
-  const [values, setValues] = useState({ recipeTitle:'', author: '', ingredients: '',instructions:'', category:'', recipeImg:'', public:''})
+  const [values, setValues] = useState({ recipeTitle:'', author: '', ingredients: '',instructions:'', category:'', recipeImg:'', privacy:''})
 
   const onSubmit=()=>{
     setRecipes([values, ...recipes]);
-    setValues({recipeTitle:'', author: '', ingredients: '', instructions:'', category:'', recipeImg:'', public:''});
+    setValues({recipeTitle:'', author: '', ingredients: '', instructions:'', category:'', recipeImg:'', privacy:''});
   }
 
   const onChange = (name, value)=>{
@@ -28,9 +28,9 @@ function App() {
       />
       {recipes.map((recipes, idx)=>{
         return (
-           //..\/ Will connect to API when possible with backendasdasd
+           //..\/ Will connect to API when possible with backend
           <div key={idx}>
-            {recipes.recipeTitle}, {recipes.author}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.public}
+            {recipes.recipeTitle}, {recipes.author}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.privacy}, <img src={recipes.recipeImg}/>
             </div>
         )
       })}
