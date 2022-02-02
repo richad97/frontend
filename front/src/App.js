@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import NewRecipeForm from './components/NewRecipeForm';
+import Intro from './components/Intro';
 
 function App() {
  
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Secret Family Recipes</h1>
+      <Intro/>
       <div className='Container'>
       <NewRecipeForm
         values={values}
