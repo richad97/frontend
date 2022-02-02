@@ -12,10 +12,10 @@ class Nav extends React.Component {
   }
   searchData(e) {
     var queryData = [];
-    if(e.target.value != '') {
+    if(e.target.value !== '') {
       this.state.data.forEach(function(person) {
 
-          if(person.toLowerCase().indexOf(e.target.value)!=-1) {
+          if(person.toLowerCase().indexOf(e.target.value)!==-1) {
             if(queryData.length < 10) {
               queryData.push(person);
             }

@@ -23,11 +23,11 @@ const NewRecipeForm = (props) =>{
                 onChange={handleChange}
                 />
             </label>
-            <label><br/>Author:
+            <label><br/>Recipe Source:
                 <input
-                placeholder="author"
-                value={props.values.author}
-                name="author"
+                placeholder="source"
+                value={props.values.source}
+                name="source"
                 onChange={handleChange}
                 />
             </label>

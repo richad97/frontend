@@ -8,11 +8,11 @@ import Nav from './components/Nav';
 function App() {
  
   const [recipes, setRecipes] = useState([]);
-  const [values, setValues] = useState({ recipeTitle:'', author: '', ingredients: '',instructions:'', category:'', recipeImg:'', privacy:''})
+  const [values, setValues] = useState({ recipeTitle:'', source: '', ingredients: '',instructions:'', category:'', recipeImg:'', privacy:''})
 
   const onSubmit=()=>{
     setRecipes([values, ...recipes]);
-    setValues({recipeTitle:'', author: '', ingredients: '', instructions:'', category:'', recipeImg:'', privacy:''});
+    setValues({recipeTitle:'', source: '', ingredients: '', instructions:'', category:'', recipeImg:'', privacy:''});
   }
 
   const onChange = (name, value)=>{
@@ -31,13 +31,14 @@ function App() {
       />
       {recipes.map((recipes, idx)=>{
         return (
-           //..\/ Will connect to API when possible with backend
+           //..\/ Will connect to API when possible with backend and refactor
           <div key={idx}>
-            {recipes.recipeTitle}, {recipes.author}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.privacy}, <img src={recipes.recipeImg}/>
+            {recipes.recipeTitle}, {recipes.source}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.privacy}, <img src={recipes.recipeImg}/>
             </div>
         )
       })}
       </div>
+      <Footer />
     </div>
   );
 }

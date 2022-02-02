@@ -5,7 +5,7 @@ class Intro extends React.Component {
 
     render(){
         return(
-            //will need to refactor for use with our api for images
+            //will need to refactor for use with css for images.
             <div>
                <header id="header">
 				    <div className="inner">
