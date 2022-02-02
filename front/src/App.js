@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import NewRecipeForm from './components/NewRecipeForm';
 import Intro from './components/Intro';
+import Login from './components/Login';
 
 function App() {
  
@@ -36,6 +37,7 @@ function App() {
         )
       })}
       </div>
+      <Login />
     </div>
   );
 }

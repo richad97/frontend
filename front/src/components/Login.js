@@ -21,7 +21,7 @@ class Login extends React.Component {
     login = (e) => {
         e.preventDefault();
         // console.log('credentials =>', this.state.credentials);
-        axios.post('http://localhost:9000/api/login')
+        axios.post('http://localhost:9000/auth/login', this.state.credentials)
             .then(resp => {
                 console.log('resp =>',resp);
                 // console.log('this.props =>',this.props);
