@@ -3,7 +3,11 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import NewRecipeForm from './components/NewRecipeForm';
 import Intro from './components/Intro';
+<<<<<<< HEAD
 import Login from './components/Login';
+=======
+import Nav from './components/Nav';
+>>>>>>> main
 
 function App() {
  
@@ -22,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Intro/>
+      <Nav />
       <div className='Container'>
       <NewRecipeForm
         values={values}
