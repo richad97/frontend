@@ -3,11 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import NewRecipeForm from './components/NewRecipeForm';
 import Intro from './components/Intro';
-<<<<<<< HEAD
-import Login from './components/Login';
-=======
 import Nav from './components/Nav';
->>>>>>> main
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
  
@@ -43,6 +41,7 @@ function App() {
       })}
       </div>
       <Login />
+      <Register />
     </div>
   );
 }

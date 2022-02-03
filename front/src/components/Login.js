@@ -24,7 +24,7 @@ class Login extends React.Component {
         axios.post('https://ft-secret-family-recipes.herokuapp.com/auth/login', this.state.credentials)
             .then(resp => {
                 console.log('resp =>',resp);
-                // localStorage.setItem('token', resp.data.token);
+                localStorage.setItem('token', resp.data.token);
                 // localStorage.setItem('role', resp.data.token);
                 // localStorage.setItem('username', resp.data.token);
                 // this.props.history.push('/friends');
