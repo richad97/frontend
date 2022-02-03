@@ -18,9 +18,41 @@ class Login extends React.Component {
         })
     }
 
+    login = (e) => {
+        e.preventDefault();
+        // console.log('credentials =>', this.state.credentials);
+        axios.post('https://ft-secret-family-recipes.herokuapp.com/auth/login', this.state.credentials)
+            .then(resp => {
+                console.log('resp =>',resp);
+                // localStorage.setItem('token', resp.data.token);
+                // localStorage.setItem('role', resp.data.token);
+                // localStorage.setItem('username', resp.data.token);
+                // this.props.history.push('/friends');
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+
     render() {
         return (
-            <div></div>
+            <div>
+                <form onSubmit={this.login}>
+                    <input 
+                        type='text'
+                        name='username'
+                        value={this.state.credentials.username}
+                        onChange={this.handleChange}
+                    />
+                    <input 
+                        type='password'
+                        name='password'
+                        value={this.state.credentials.password}
+                        onChange={this.handleChange}
+                    />
+                    <button>Log In</button>
+                </form>
+            </div>
         )
     }
 
