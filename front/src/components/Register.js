@@ -4,13 +4,17 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 const initialValues = {
-  username: "",
-  password: "",
+    first_name: '',
+    last_name: '',
+    username: '',
+    password: '',
 };
 
 const initialErrors = {
-  username: "",
-  password: "",
+    first_name: '',
+    last_name: '',
+    username: '',
+    password: '',
 };
 
 const validationSchema = yup.object().shape({
@@ -73,24 +77,44 @@ export default function Register() {
           <h1>User Registration</h1>
 
           <div className="form-group">
-            <label>Username: </label>
-            <input
-              type="text"
-              name="username"
-              value={user.name}
-              onChange={onChange}
-              id='user-input'
-            />
 
-            <label>Password: </label>
-            <input
-              type="password"
-              name="password"
-              value={user.password}
-              onChange={onChange}
-              id='pass-input'
-            />
-            <br />
+                <label>First Name: </label>
+                <input
+                    type="text"
+                    name="first_name"
+                    value={user.first_name}
+                    onChange={onChange}
+                    id='user-input'
+                />
+                <br/>
+                <label>Last Name: </label>
+                <input
+                    type="text"
+                    name="last_name"
+                    value={user.last_name}
+                    onChange={onChange}
+                    id='user-input'
+                />
+                <br/>
+                <label>Username: </label>
+                    <input
+                    type="text"
+                    name="username"
+                    value={user.name}
+                    onChange={onChange}
+                    id='user-input'
+                    />
+                <br/>
+                <label>Password: </label>
+                    <input
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={onChange}
+                    id='pass-input'
+                    />
+
+                <br/>
           </div>
         </div>
         <div className="errors">
