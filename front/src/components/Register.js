@@ -93,7 +93,11 @@ export default function Register() {
                 <input
                     type="text"
                     name="first_name"
+
                     value={user.name}
+
+
+
                     onChange={onChange}
                     id='user-input'
                 />
@@ -102,7 +106,11 @@ export default function Register() {
                 <input
                     type="text"
                     name="last_name"
+
                     value={user.name}
+
+
+
                     onChange={onChange}
                     id='user-input'
                 />
