@@ -1,47 +1,43 @@
-import React, { useState } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-import NewRecipeForm from './components/NewRecipeForm';
-import Intro from './components/Intro';
-import Nav from './components/Nav';
-import Login from './components/Login';
-import Register from './components/Register';
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Layout from "./components/Layout";
+import Home from "./components/Home";
+import RequireAuth from "./components/RequireAuth";
+import Recipes from "./components/Recipes";
+import EditRecipe from "./components/EditRecipe";
+import DeleteRecipe from "./components/DeleteRecipe";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
+import "./App.css";
 
 function App() {
- 
-  const [recipes, setRecipes] = useState([]);
-  const [values, setValues] = useState({ recipeTitle:'', author: '', ingredients: '',instructions:'', category:'', recipeImg:'', privacy:''})
-
-  const onSubmit=()=>{
-    setRecipes([values, ...recipes]);
-    setValues({recipeTitle:'', author: '', ingredients: '', instructions:'', category:'', recipeImg:'', privacy:''});
-  }
-
-  const onChange = (name, value)=>{
-    setValues({ ...values, [name]: value});
-  }
+  const [isLoggedIn, setLogIn] = useState(false);
 
   return (
     <div className="App">
-      <Intro/>
-      <Nav />
-      <div className='Container'>
-      <NewRecipeForm
-        values={values}
-        change={onChange}
-        submit={onSubmit}
-      />
-      {recipes.map((recipes, idx)=>{
-        return (
-           //..\/ Will connect to API when possible with backend
-          <div key={idx}>
-            {recipes.recipeTitle}, {recipes.author}, {recipes.ingredients}, {recipes.instructions}, {recipes.category}, {recipes.recipeImg}, {recipes.privacy}, <img src={recipes.recipeImg}/>
-            </div>
-        )
-      })}
-      </div>
-      <Login />
-      <Register />
+      <Routes>
+        <Route path="/" element={<Layout isLoggedIn={isLoggedIn} />}>
+          <Route index element={<Home />} />
+          <Route
+            path="recipes"
+            element={
+              <RequireAuth redirectTo={"/login"}>
+                <Recipes />
+              </RequireAuth>
+            }
+          >
+            <Route path="edit" element={<EditRecipe />} />
+            <Route path="delete" element={<DeleteRecipe />} />
+          </Route>
+
+          <Route path="login" element={<Login setLogIn={setLogIn} />} />
+          <Route path="register" element={<Register />} />
+
+          {/* <Route path="*" element={<NoMatch />} /> */}
+        </Route>
+      </Routes>
     </div>
   );
 }
